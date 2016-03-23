@@ -1,11 +1,11 @@
 {
-  "name": "react-bootstrap-components",
-  "version": "0.0.1",
+  "name": "react-bootstrap-lib",
+  "version": "0.0.2",
   "description": "A collection of React/Bootstrap components.",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/a-framework/react-bootstrap-components.git"
+    "url": "git+https://github.com/a-framework/react-bootstrap-lib.git"
   },
   "keywords": [
     "react",
@@ -16,9 +16,9 @@
   "author": "Dmitry Nutels",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/a-framework/react-bootstrap-components/issues"
+    "url": "https://github.com/a-framework/react-bootstrap-lib/issues"
   },
-  "homepage": "https://github.com/a-framework/react-bootstrap-components#readme",
+  "homepage": "https://github.com/a-framework/react-bootstrap-lib#readme",
   "dependencies": {
     "babel-runtime": "^6.6.1",
     "react": "^15.0.0-rc.2",
