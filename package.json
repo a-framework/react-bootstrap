@@ -48,7 +48,6 @@
   "scripts": {
     "build:lib": "webpack --config build/webpack.lib.config.js",
     "build:demo": "webpack --config build/webpack.demo.config.js",
-    "publish:demo": "webpack --config build/webpack.demo.config.js",
     "demo": "webpack-dev-server --config build/webpack.demo.config.js",
     "test": "npm test"
   }

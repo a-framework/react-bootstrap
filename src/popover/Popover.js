@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
 
 export default class Popover extends Component {
+    static get propTypes() {
+        return {
+            children: React.PropTypes.node
+        };
+    }
+
     render() {
         return (
-            <div>Popover</div>
+            <div>
+                {this.props.children}
+            </div>
         );
     }
 }

@@ -9,8 +9,9 @@ const SRC_FOLDER = PATH.resolve(__dirname, ROOT, 'src/');
 
 const DEMO_ENTRY_FILE = PATH.resolve(DEMO_FOLDER, 'index.js');
 const DEMO_HTML_FILE = PATH.resolve(DEMO_FOLDER, 'index.html');
+const DEMO_CSS_FILE = PATH.resolve(DEMO_FOLDER, 'css/bootstrap.css');
 const BUILD_FOLDER = PATH.resolve(__dirname, ROOT, `dist/`);
-const PUBLIC_PATH = '/assets/js/';
+const PUBLIC_PATH = '/assets/';
 
 module.exports = {
     cache: true,
@@ -23,7 +24,8 @@ module.exports = {
             'webpack-dev-server/client?http://localhost:8080/', 
             'webpack/hot/dev-server',
             DEMO_ENTRY_FILE,
-            DEMO_HTML_FILE
+            DEMO_HTML_FILE,
+            DEMO_CSS_FILE
         ]
     },
     output: {
@@ -40,7 +42,7 @@ module.exports = {
         ],
         loaders: [
             {
-                test: /\.html$/, loader: 'file', query: {name: '[name].[ext]'}
+                test: /\.html|\.css$/, loader: 'file', query: {name: '[name].[ext]'}
             },
             {
                 test: /\.js$/, include: [SRC_FOLDER, DEMO_FOLDER], loader: ["babel"],
