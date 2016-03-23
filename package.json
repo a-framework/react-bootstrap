@@ -1,0 +1,55 @@
+{
+  "name": "react-bootstrap-components",
+  "version": "0.0.1",
+  "description": "A collection of React/Bootstrap components.",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-framework/react-bootstrap-components.git"
+  },
+  "keywords": [
+    "react",
+    "bootstrap",
+    "components",
+    "library"
+  ],
+  "author": "Dmitry Nutels",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/a-framework/react-bootstrap-components/issues"
+  },
+  "homepage": "https://github.com/a-framework/react-bootstrap-components#readme",
+  "dependencies": {
+    "babel-runtime": "^6.6.1",
+    "react": "^15.0.0-rc.2",
+    "react-dom": "^0.14.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.2",
+    "babel-eslint": "^6.0.0-beta.6",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-es2015-modules-commonjs-simple": "^6.7.0",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-plugin-transform-runtime": "^6.6.0",
+    "babel-preset-es2015-native-modules": "^6.6.0",
+    "babel-preset-es2015-webpack": "^6.4.0",
+    "babel-preset-react": "^6.5.0",
+    "eslint": "^2.4.0",
+    "eslint-config-airbnb": "^6.1.0",
+    "eslint-loader": "^1.3.0",
+    "eslint-plugin-react": "^4.2.3",
+    "file-loader": "^0.8.5",
+    "npm-check-updates": "^2.6.1",
+    "npm-run-all": "^1.6.0",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^2.1.0-beta.4",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "build:lib": "webpack --config build/webpack.lib.config.js",
+    "build:demo": "webpack --config build/webpack.demo.config.js",
+    "publish:demo": "webpack --config build/webpack.demo.config.js",
+    "demo": "webpack-dev-server --config build/webpack.demo.config.js",
+    "test": "npm test"
+  }
+}
