@@ -21,7 +21,13 @@ module.exports = {
         ]
     },
     externals: {
-        'react': 'React'
+        'react': {
+            root: "React",
+            commonjs2: 'react',
+            commonjs: 'react',
+            umd: 'react',
+            amd: 'react'
+        }
     },
     output: {
         path: BUILD_FOLDER,
