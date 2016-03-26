@@ -32,6 +32,8 @@ module.exports = {
     output: {
         path: BUILD_FOLDER,
         filename: '[name].js',
+        library: 'ReactBootstrapLib',
+        libraryTarget: 'umd'
     },
     module: {
         preLoaders: [
