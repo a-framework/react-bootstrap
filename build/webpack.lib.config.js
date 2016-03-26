@@ -21,8 +21,7 @@ module.exports = {
         ]
     },
     externals: {
-        'react': 'react',
-        'react-dom': 'react-dom'
+        'react': 'React'
     },
     output: {
         path: BUILD_FOLDER,
