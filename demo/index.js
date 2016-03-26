@@ -1,13 +1,15 @@
 import React from 'react';
 import {render} from 'react-dom';
+import {Router, browserHistory} from 'react-router';
 
-import {Popover} from '../src';
+import {configureRoutes} from './routes/routes';
+
+import './index.html';
+import './css/bootstrap.css';
 
 render((
-    <Popover>
-        <h3>Title</h3>
-        <p>
-            Content
-        </p>
-    </Popover>
+    <Router history={browserHistory}>
+        {configureRoutes()}
+    </Router>
 ), document.querySelector('[data-ui-role="content"]'));
+

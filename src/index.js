@@ -1,2 +1,4 @@
-import _Popover from './popover/Popover';
-export {_Popover as Popover};
+import Tabs from './navs/tabs/Tabs';
+import Pane from './navs/tabs/Pane';
+import Tab from './navs/tabs/Tab';
+export {Tabs, Pane, Tab};

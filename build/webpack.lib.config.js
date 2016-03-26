@@ -8,6 +8,7 @@ const SRC_FOLDER = PATH.resolve(__dirname, ROOT, 'src/');
 const SRC_ENTRY_FILE = PATH.resolve(SRC_FOLDER, 'index.js');
 const BUILD_FOLDER = PATH.resolve(__dirname, ROOT, `dist/`);
 
+
 module.exports = {
     cache: true,
     profile: false,
@@ -15,16 +16,18 @@ module.exports = {
     debug: true,    
     bail: true,
     entry: {
-        lib: [SRC_ENTRY_FILE]
+        lib: [
+            SRC_ENTRY_FILE
+        ]
+    },
+    externals: {
+        'react': 'react',
+        'react-dom': 'react-dom'
     },
     output: {
         path: BUILD_FOLDER,
         filename: '[name].js',
-        pathinfo: false
     },
-    externals: {
-        'react': 'react'
-    },  
     module: {
         preLoaders: [
             {
@@ -33,12 +36,13 @@ module.exports = {
         ],
         loaders: [
             {
-                test: /\.js$/, include: [SRC_FOLDER], loader: 'babel',
+                test: /\.js$/, 
+                include: [SRC_FOLDER], loader: ["babel"],
                 query: {compact: false, cacheDirectory: true}
             }
         ]
     },
-    plugins: [     
+    plugins: [ 
         new webpack.NoErrorsPlugin()
     ]
 };

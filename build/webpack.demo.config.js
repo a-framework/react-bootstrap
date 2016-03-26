@@ -4,14 +4,11 @@ const webpack = require('webpack');
 
 const ROOT = '../';
 
-const DEMO_FOLDER = PATH.resolve(__dirname, ROOT, 'demo/');
 const SRC_FOLDER = PATH.resolve(__dirname, ROOT, 'src/');
+const BUILD_FOLDER = PATH.resolve(__dirname, ROOT, `dist/demo/js/`);
 
+const DEMO_FOLDER = PATH.resolve(__dirname, ROOT, 'demo/');
 const DEMO_ENTRY_FILE = PATH.resolve(DEMO_FOLDER, 'index.js');
-const DEMO_HTML_FILE = PATH.resolve(DEMO_FOLDER, 'index.html');
-const DEMO_CSS_FILE = PATH.resolve(DEMO_FOLDER, 'css/bootstrap.css');
-const BUILD_FOLDER = PATH.resolve(__dirname, ROOT, `dist/`);
-const PUBLIC_PATH = '/assets/';
 
 module.exports = {
     cache: true,
@@ -21,18 +18,21 @@ module.exports = {
     bail: true,
     entry: {
         demo: [
-            'webpack-dev-server/client?http://localhost:8080/', 
-            'webpack/hot/dev-server',
-            DEMO_ENTRY_FILE,
-            DEMO_HTML_FILE,
-            DEMO_CSS_FILE
+            DEMO_ENTRY_FILE
+        ],
+        vendor: [
+            'react',
+            'react-dom'
         ]
+    },
+    externals: {
+        'cheerio': 'window',
+        'react/lib/ReactContext': 'window',
+        'react/lib/ExecutionEnvironment': 'window'
     },
     output: {
         path: BUILD_FOLDER,
-        publicPath: PUBLIC_PATH,
         filename: '[name].js',
-        pathinfo: false
     },
     module: {
         preLoaders: [
@@ -42,22 +42,22 @@ module.exports = {
         ],
         loaders: [
             {
-                test: /\.html|\.css$/, loader: 'file', query: {name: '[name].[ext]'}
+                test: /\.html$/, loader: 'file', query: {name: '../[name].[ext]'}
             },
             {
-                test: /\.js$/, include: [SRC_FOLDER, DEMO_FOLDER], loader: ["babel"],
+                test: /\.css$/, loader: 'file', query: {name: '../css/[name].[ext]'}
+            },
+            {
+                test: /\.js$/, 
+                include: [SRC_FOLDER, DEMO_FOLDER], loader: ["babel"],
                 query: {compact: false, cacheDirectory: true}
             }
         ]
     },
     plugins: [     
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor', filename: 'vendor.js'
+        }),
         new webpack.NoErrorsPlugin()
-    ],
-    devServer: {
-        contentBase: 'demo/',
-        historyApiFallback: {
-            index: '/'
-        }
-    }
+    ]
 };
