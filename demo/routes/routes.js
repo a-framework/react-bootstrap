@@ -1,15 +1,40 @@
 import React from 'react';
-import {Route} from 'react-router';
+import {IndexRoute, Route} from 'react-router';
 
 import App from './App';
-import Tabs from './Tabs';
+import Home from './Home';
+import NoMatch from './NoMatch';
 
-export const configureRoutes = function () {
-    return (
-        <Route path="/" component={App}>
-            <Route path="tabs" component={Tabs} />
-        </Route>
-    );         
+const Tabs = (location, cb) => {
+    System.import('./components/Tabs').then((module) => {
+        cb(null, module.default);
+    }).catch((err) => {
+        console.error(err);
+    });
 };
 
-export default configureRoutes();
+const Collapse = (location, cb) => {
+    System.import('./components/Collapse').then((module) => {
+        cb(null, module.default);
+    }).catch((err) => {
+        console.error(err);
+    });
+};
+
+const Popover = (location, cb) => {
+    System.import('./components/Popover').then((module) => {
+        cb(null, module.default);
+    }).catch((err) => {
+        console.error(err);
+    });
+};
+
+export default (
+    <Route path="/" component={App}>
+        <IndexRoute component={Home} />
+        <Route path="tabs" getComponent={Tabs} />
+        <Route path="collapse" getComponent={Collapse} />
+        <Route path="popover" getComponent={Popover} />
+        <Route path="*" component={NoMatch} />
+    </Route>
+);         

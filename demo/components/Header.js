@@ -13,6 +13,12 @@ export default () => {
                  <li className="nav-item">
                     <Link className="nav-link" to="/tabs" activeClassName="active">Tabs</Link>
                  </li>
+                 <li className="nav-item">
+                    <Link className="nav-link" to="/collapse" activeClassName="active">Collapse</Link>
+                 </li>
+                 <li className="nav-item">
+                    <Link className="nav-link" to="/popover" activeClassName="active">Popover</Link>
+                 </li>
             </ul>
         </header>
     );

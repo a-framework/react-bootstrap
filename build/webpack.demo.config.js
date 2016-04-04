@@ -10,6 +10,8 @@ const BUILD_FOLDER = PATH.resolve(__dirname, ROOT, `dist/demo/js/`);
 const DEMO_FOLDER = PATH.resolve(__dirname, ROOT, 'demo/');
 const DEMO_ENTRY_FILE = PATH.resolve(DEMO_FOLDER, 'index.js');
 
+const PUBLIC_PATH = 'assets/js/';
+
 module.exports = {
     cache: true,
     profile: false,
@@ -20,10 +22,7 @@ module.exports = {
         demo: [
             DEMO_ENTRY_FILE
         ],
-        vendor: [
-            'react',
-            'react-dom'
-        ]
+        vendor: ['react', 'react-router', 'react-dom', 'classnames']
     },
     externals: {
         'cheerio': 'window',
@@ -32,6 +31,7 @@ module.exports = {
     },
     output: {
         path: BUILD_FOLDER,
+        publicPath: PUBLIC_PATH,
         filename: '[name].js',
     },
     module: {

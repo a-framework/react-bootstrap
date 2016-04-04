@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Tabs, Tab, Pane} from '../../src';
+import {Tabs, Tab, Pane} from '../../../src';
 
 const css = `
     .nav-tabs {
@@ -11,7 +11,7 @@ const css = `
     }
 `;
 
-export default class TabsRoute extends Component {
+export default class CollapseRoute extends Component {
     constructor() {
         super();
 
